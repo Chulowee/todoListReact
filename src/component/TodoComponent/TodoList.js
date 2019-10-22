@@ -1,5 +1,6 @@
 import React from 'react';
 import Todo from "./Todo";
+import './TodoList.css'
 
 class TodoList extends React.Component {
     constructor(props) {
@@ -15,11 +16,13 @@ class TodoList extends React.Component {
     }
 
     onSubmit = (event) => {
-        event.preventDefault();
-        this.setState({
-            term: '',
-            items: [...this.state.items, <Todo title={this.state.term}/>]
-        });
+        if (this.state.term){
+            event.preventDefault();
+            this.setState({
+                term: '',
+                items: [...this.state.items, <Todo title={this.state.term}/>]
+            });
+        }
     }
 
     render() {
@@ -28,7 +31,7 @@ class TodoList extends React.Component {
                 <div>
                     <form className="todoList" onSubmit={this.onSubmit}>
                         <input value={this.state.term} onChange={this.onChange} />
-                        <button>Add Item</button>
+                        <button className="button">Add Item</button>
                     </form>
                     {this.state.items}
                 </div>
