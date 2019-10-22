@@ -1,5 +1,5 @@
 import React from 'react';
-import Todo from "./TodoComponent/Todo";
+import Todo from "./Todo";
 
 class TodoList extends React.Component {
     constructor(props) {
@@ -25,11 +25,13 @@ class TodoList extends React.Component {
     render() {
         return (
             <div>
-                <form className="App" onSubmit={this.onSubmit}>
-                    <input value={this.state.term} onChange={this.onChange} />
-                    <button>Submit</button>
-                </form>
-                {this.state.items}
+                <div>
+                    <form className="todoList" onSubmit={this.onSubmit}>
+                        <input value={this.state.term} onChange={this.onChange} />
+                        <button>Add Item</button>
+                    </form>
+                    {this.state.items}
+                </div>
             </div>
         );
     }
