@@ -33,4 +33,6 @@ body {
   margin-top: 40px;
   background: white;
   border-radius: 5px;
+  height: 50vh;
+  overflow-y: scroll;
 }
